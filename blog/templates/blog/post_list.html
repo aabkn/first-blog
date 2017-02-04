@@ -1,10 +1,11 @@
 {% extends 'blog/base.html' %}
 {% block content %}
   {% for post in posts %}
-      <hr><div>
-        <p>published: {{ post.published_date }}, {{ post.author }}</p>
-        <p><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></p>
+      <hr><div class="col-s-1">
+
+        <h4><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h4>
         <p>{{ post.text }}</p>
+        <p class="caption"><small>published: {{ post.published_date }}, {{ post.author }}</small></p>
       </div>
       <hr>
   {% endfor %}
