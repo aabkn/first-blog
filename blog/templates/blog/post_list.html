@@ -5,10 +5,15 @@
   <title>Title</title>
 </head>
 <body>
-<ul>
-  <li>Thing 1</li>
-  <li>Thing 2</li>
-  <li>Thing 3</li>
-</ul>
+
+  <div>
+    {% for post in posts %}
+    <div>
+      <p>published: {{ post.published_date }}, {{ post.author }}</p>
+      <p><strong>{{ post.title }}</strong></p>
+      <p>{{ post.text }}</p>
+    </div>
+    {% endfor %}
+  </div>
 </body>
 </html>
