@@ -8,11 +8,12 @@
   <p>My favorite chocolate</p>
   <div>
     {% for post in posts %}
-    <div>
+    <hr><div>
       <p>published: {{ post.published_date }}, {{ post.author }}</p>
       <p><strong>{{ post.title }}</strong></p>
       <p>{{ post.text }}</p>
     </div>
+    <hr>
     {% endfor %}
   </div>
 </body>
