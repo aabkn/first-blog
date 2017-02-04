@@ -1,3 +1,23 @@
-body {
-    margin-left: 20%;
+.header {
+    height: 300px;
+    background: linear-gradient(transparent 10%, #fff),
+                    #ffffee url(../img/thumb_DSC_1629_1024.jpg) no-repeat center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin: 0;
+
+}
+
+.header a, .header a:hover {
+    color: white;
+    font-family: "Helvetica Neue";
+    text-decoration: none;
+    font-weight: 100;
+    text-shadow: 1px 1px 3px #222;
+}
+
+.content {
+    margin-left: 45px;
 }
