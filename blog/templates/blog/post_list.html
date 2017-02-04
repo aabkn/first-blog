@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang = "en">
-<head>
-  <meta charset = "UTF-8">
-  <title>Chocolate</title>
-</head>
-<body>
-  <p>My favorite chocolate</p>
-  <div>
-    {% for post in posts %}
-    <hr><div>
-      <p>published: {{ post.published_date }}, {{ post.author }}</p>
-      <p><strong>{{ post.title }}</strong></p>
-      <p>{{ post.text }}</p>
-    </div>
-    <hr>
-    {% endfor %}
-  </div>
-</body>
-</html>
+{% extends 'blog/base.html' %}
+{% block content %}
+  {% for post in posts %}
+      <hr><div>
+        <p>published: {{ post.published_date }}, {{ post.author }}</p>
+        <p><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></p>
+        <p>{{ post.text }}</p>
+      </div>
+      <hr>
+  {% endfor %}
+{% endblock content %}
