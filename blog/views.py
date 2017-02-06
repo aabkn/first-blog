@@ -18,7 +18,7 @@ def post_detail(request, pk):
     			comment.post = post
     			comment.save()
     			return redirect('post_detail', pk=comment.post.pk)
-    	    else:
+            else:
     		    form = CommentForm()
     	return render(request, 'blog/post_detail.html', {'post': post, 'form': form})
 	#return render(request, 'blog/post_detail.html', {'post': post})
