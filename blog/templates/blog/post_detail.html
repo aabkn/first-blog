@@ -4,19 +4,27 @@
   <div class="post">
 
     <h3>{{ post.title }}</h3>
+
+    <p>{{ post.text }}</p>
     {% if post.published_date %}
     <div class="date">
       <p class="caption"><small>published: {{ post.published_date }}, {{ post.author }}</small></p>
     </div>
     {% endif %}
-    <p>{{ post.text }}</p>
 
   </div>
   <div class="comments">
     <h3>Комментарии</h3>
     {% for comment in post.comment_set.all %}
-      <h4>{{ comment.name }}</h4>
+      <h4>{{ comment.name }} <small>{{ comment.created_date }}</small></h4>
       <p>{{ comment.text }}</p>
     {% endfor %}
+  </div>
+  <div>
+    <h3>New comment</h3>
+    <form method="POST" class="comment-form"> {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="save btn btn-default">Save</button>
+    </form>
   </div>
 {% endblock %}
