@@ -12,4 +12,11 @@
     <p>{{ post.text }}</p>
 
   </div>
+  <div class="comments">
+    <h3>Комментарии</h3>
+    {% for comment in post.comment_set.all %}
+      <h4>{{ comment.name }}</h4>
+      <p>{{ comment.text }}</p>
+    {% endfor %}
+  </div>
 {% endblock %}
