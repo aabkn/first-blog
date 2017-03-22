@@ -1,0 +1,32 @@
+body {
+    background: linear-gradient(transparent 50%, #445), url(../img/stars.jpg) no-repeat bottom ;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 35px 0;
+    margin: 0;
+    height: 100vh;
+}
+
+.header {
+    color: white;
+    font-family: "Helvetica Neue";
+    text-decoration: none;
+    font-weight: 200;
+    font-size: 30px;
+    text-shadow: 1px 1px 3px #222;
+    width: 50%;
+    float: left;
+    display: block;
+    margin: 10% 10%;
+}
+
+.auth {
+    display: block;
+    width: 50%;
+    float: right;
+}
+
+.input {
+    color: #222;
+}
