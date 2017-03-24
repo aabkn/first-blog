@@ -1,13 +1,15 @@
 {% extends 'blog/base.html' %}
 {% block content %}
+<hr>
   {% for post in posts %}
-      <hr><div class="col-s-1">
+      <div class="col-md-3" id="container">
 
         <h4><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h4>
-        <p>{{ post.text }}</p>
+
         <p class="caption"><small>published: {{ post.published_date }}, {{ post.author }}</small></p>
+
+        <small><a href="{% url 'post_detail' pk=post.pk %}">Комментарии ({{ post.comment_set.all.count }})</a></small>
+        <hr>
       </div>
-      <small><a href="{% url 'post_detail' pk=post.pk %}">Комментарии ({{ post.comment_set.all.count }})</a></small>
-      <hr>
   {% endfor %}
 {% endblock content %}
