@@ -10,7 +10,10 @@
 
 }
 
-
+#container {
+    background: url(../img/hydrangea.jpg) no-repeat center;
+    background-size: cover;
+}
 
 .header a, .header a:hover {
     color: white;
