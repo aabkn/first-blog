@@ -40,6 +40,11 @@ def post_new(request):
 		form = PostForm()
 	return render(request, 'blog/post_edit.html', {'form': form})
 
+@login_required
+def profile(request):
+    posts = Post.objects.filter(author=request.user)
+    return render(request, 'blog/profile.html', {'posts': posts})
+
 '''def comment_new(request):
 	if request.method == "POST":
 		form = CommentForm(request.POST)
