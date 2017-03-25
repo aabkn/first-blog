@@ -21,8 +21,5 @@
 }
 
 .content {
-    margin: auto;
-    max-width: 45%;
-    min-width: 400px;
-    text-align: center;
+    padding: 20px;
 }

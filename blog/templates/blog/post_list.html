@@ -1,12 +1,14 @@
 {% extends 'blog/base.html' %}
 {% block content %}
 <hr>
+
   {% for post in posts %}
+
       <div class="col-md-3" id="container">
 
         <h4><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h4>
 
-        <p class="caption"><small>published: {{ post.published_date }}, {{ post.author }}</small></p>
+        <p class="caption"><small>published: {{ post.published_date }}, <a href="{% url 'profile' username=post.author.username %}">{{ post.author }}</a></small></p>
 
         <small><a href="{% url 'post_detail' pk=post.pk %}">Комментарии ({{ post.comment_set.all.count }})</a></small>
         <hr>

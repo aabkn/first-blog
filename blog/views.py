@@ -3,6 +3,7 @@ from django.utils import timezone
 from .models import Post
 from .forms import PostForm, CommentForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 # Create your views here.
 @login_required
@@ -41,9 +42,11 @@ def post_new(request):
 	return render(request, 'blog/post_edit.html', {'form': form})
 
 @login_required
-def profile(request):
-    posts = Post.objects.filter(author=request.user)
-    return render(request, 'blog/profile.html', {'posts': posts})
+def profile(request, username):
+    user = User.objects.get(username=username)
+    posts = Post.objects.filter(author=request.user).order_by('-published_date')
+    return render(request, 'blog/post_list.html', {'posts': posts})
+
 
 '''def comment_new(request):
 	if request.method == "POST":
