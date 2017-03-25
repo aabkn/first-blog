@@ -44,7 +44,7 @@ def post_new(request):
 @login_required
 def profile(request, username):
     user = User.objects.get(username=username)
-    posts = Post.objects.filter(author=request.user).order_by('-published_date')
+    posts = Post.objects.filter(author=user).order_by('-published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 
