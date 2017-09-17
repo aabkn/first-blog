@@ -25,8 +25,19 @@
 }
 
 #wish {
-    border: 3px solid black;
-    text-align: right;
-    background-color: #5b80b2;
-    color: red;
+    border: 1px solid #ccc;
+    margin: 1%;
+    padding: 3px;
+}
+
+.wish-title {
+    font-size: large;
+    color: #7CA0C7;
+    font-weight: 200;
+    text-decoration: none;
+}
+
+.wish-content a:hover {
+    color: #7CA0C7;
+    text-decoration: none;
 }

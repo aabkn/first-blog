@@ -4,13 +4,17 @@
 
   {% for post in posts %}
 
-      <div class="col-12 col-sm-6 col-md-3" id="wish">
+      <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+        <div class="row" id="wish">
+          <div class="container" id="wish_content">
+            <img src="../../static/img/present.jpg" alt="hearts" class="img-fluid">
+            <a class="wish-title" href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+            <p class="caption"><small>published: {{ post.published_date }}, <a href="{% url 'profile' username=post.author.username %}">{{ post.author }}</a></small></p>
+            <small><a href="{% url 'post_detail' pk=post.pk %}">Комментарии ({{ post.comment_set.all.count }})</a></small>
 
-        <h4><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h4>
+          </div>
+            </div>
 
-        <p class="caption"><small>published: {{ post.published_date }}, <a href="{% url 'profile' username=post.author.username %}">{{ post.author }}</a></small></p>
-
-        <small><a href="{% url 'post_detail' pk=post.pk %}">Комментарии ({{ post.comment_set.all.count }})</a></small>
 
       </div>
   {% endfor %}
