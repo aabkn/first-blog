@@ -6,7 +6,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>Anastasia's blog</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
@@ -14,16 +14,25 @@
 
     <h1><a href="/">Welcome to Anastasia's blog!</a></h1>
   </div>
-  <div class="content">{% if user.is_authenticated %}
-    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+  <div class="container">
+    {% if user.is_authenticated %}
+    <nav class="navbar-nav navbar-expand-lg navbar-light" id="menu">
+      <div class="collapse navbar-collapse">
+        <div class="navbar-nav" id="navbarNavAltMarkup">
+          <a class="nav-link" href="{% url 'post_new' %}">Загадать желание</a>
+          <a class="nav-link" href="#">Мои друзья</a>
+          <a class="nav-link" href="{% url 'profile' username=user.username %}">Мои желания</a>
+          <a class="nav-link" href="#">Мой профиль</a>
+        </div>
+      </div>
+    </nav>
     <a href="{% url 'logout' %}" class="top-menu">Выйти</a>
-    <p><a href="{% url 'profile' username=user.username %}">Перейти на мою страницу</a></p>
-    {% else %}
-    <a href="{% url 'login' %}" class="top-menu">Войти</a>
-    {% endif %}
     <div class="row">
       {% block content %}
       {% endblock %}
+    {% else %}
+    <a href="{% url 'login' %}" class="top-menu">Войти</a>
+    {% endif %}
     </div>
   </div>
 </body>

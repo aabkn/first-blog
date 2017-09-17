@@ -23,3 +23,10 @@
 .content {
     padding: 20px;
 }
+
+#wish {
+    border: 3px solid black;
+    text-align: right;
+    background-color: #5b80b2;
+    color: red;
+}
